@@ -32,11 +32,9 @@
     frequently.
     
     
-# Goals within Final Project scope
-    I will be using Unity to do this within the scope of the final project. Ideally I would use a different
-    platform but doing so at this point in time seems like a mistake considering my difficulties obtaining
-    Unity in the first place. During the next few days I will flesh
-    out which goals seem obtainable, but currently they are as follows:
+# Goals within CS 211 Final Project scope
+    I will be using WinForms to do this within the scope of the final project. Current goals for the project
+    are subject to change, they are currently as follows:
     
     1. Create a class of recipes and sort them through a search of their properties.
     2. Have a button that allows creation of new recipes.
