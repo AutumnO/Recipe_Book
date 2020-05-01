@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RecipeBook.Properties
+namespace Recipe_Book.Properties
 {
 
 
