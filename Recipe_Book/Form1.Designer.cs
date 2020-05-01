@@ -50,6 +50,16 @@
             this.searchRecipeContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.recipeListView = new System.Windows.Forms.ListView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -68,16 +78,6 @@
             this.shoppingListTab = new System.Windows.Forms.TabPage();
             this.kitchenStockTab = new System.Windows.Forms.TabPage();
             this.mainTitleText = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Tabs.SuspendLayout();
             this.recipeSearchTab.SuspendLayout();
@@ -230,6 +230,98 @@
             this.recipeListView.TileSize = new System.Drawing.Size(250, 20);
             this.recipeListView.UseCompatibleStateImageBehavior = false;
             this.recipeListView.View = System.Windows.Forms.View.Tile;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.AcceptsTab = true;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(20, 437);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(385, 164);
+            this.richTextBox1.TabIndex = 24;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // textBox10
+            // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Location = new System.Drawing.Point(243, 309);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(150, 13);
+            this.textBox10.TabIndex = 23;
+            this.textBox10.Text = "finely chopped";
+            // 
+            // textBox11
+            // 
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox11.Location = new System.Drawing.Point(243, 333);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(150, 13);
+            this.textBox11.TabIndex = 22;
+            this.textBox11.Text = "finely chopped";
+            // 
+            // textBox12
+            // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox12.Location = new System.Drawing.Point(243, 359);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(150, 13);
+            this.textBox12.TabIndex = 21;
+            this.textBox12.Text = "finely chopped";
+            // 
+            // textBox13
+            // 
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox13.Location = new System.Drawing.Point(243, 386);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(150, 13);
+            this.textBox13.TabIndex = 20;
+            this.textBox13.Text = "finely chopped";
+            // 
+            // textBox14
+            // 
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.Location = new System.Drawing.Point(243, 285);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(150, 13);
+            this.textBox14.TabIndex = 19;
+            this.textBox14.Text = "finely chopped";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox9.Location = new System.Drawing.Point(163, 309);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(150, 13);
+            this.textBox9.TabIndex = 18;
+            this.textBox9.Text = "mixed berries";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Location = new System.Drawing.Point(163, 333);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(150, 13);
+            this.textBox8.TabIndex = 17;
+            this.textBox8.Text = "mixed berries";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Location = new System.Drawing.Point(163, 359);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(150, 13);
+            this.textBox7.TabIndex = 16;
+            this.textBox7.Text = "mixed berries";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Location = new System.Drawing.Point(163, 386);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(150, 13);
+            this.textBox6.TabIndex = 15;
+            this.textBox6.Text = "mixed berries";
             // 
             // comboBox5
             // 
@@ -384,7 +476,6 @@
             // 
             // pbjpgImage
             // 
-            this.pbjpgImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbjpgImage.BackgroundImage")));
             this.pbjpgImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbjpgImage.Location = new System.Drawing.Point(0, 0);
             this.pbjpgImage.Name = "pbjpgImage";
@@ -421,98 +512,6 @@
             this.mainTitleText.Size = new System.Drawing.Size(243, 42);
             this.mainTitleText.TabIndex = 0;
             this.mainTitleText.Text = "Kitchen Stuff";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(163, 386);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(150, 13);
-            this.textBox6.TabIndex = 15;
-            this.textBox6.Text = "mixed berries";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(163, 359);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(150, 13);
-            this.textBox7.TabIndex = 16;
-            this.textBox7.Text = "mixed berries";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(163, 333);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(150, 13);
-            this.textBox8.TabIndex = 17;
-            this.textBox8.Text = "mixed berries";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(163, 309);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(150, 13);
-            this.textBox9.TabIndex = 18;
-            this.textBox9.Text = "mixed berries";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(243, 309);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(150, 13);
-            this.textBox10.TabIndex = 23;
-            this.textBox10.Text = "finely chopped";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(243, 333);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(150, 13);
-            this.textBox11.TabIndex = 22;
-            this.textBox11.Text = "finely chopped";
-            // 
-            // textBox12
-            // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(243, 359);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(150, 13);
-            this.textBox12.TabIndex = 21;
-            this.textBox12.Text = "finely chopped";
-            // 
-            // textBox13
-            // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(243, 386);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(150, 13);
-            this.textBox13.TabIndex = 20;
-            this.textBox13.Text = "finely chopped";
-            // 
-            // textBox14
-            // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Location = new System.Drawing.Point(243, 285);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(150, 13);
-            this.textBox14.TabIndex = 19;
-            this.textBox14.Text = "finely chopped";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.AcceptsTab = true;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(20, 437);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(385, 164);
-            this.richTextBox1.TabIndex = 24;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // splitContainer1
             // 
