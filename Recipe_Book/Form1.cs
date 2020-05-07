@@ -29,6 +29,7 @@ namespace RecipeBook
             loadRecipes();
         }
 
+
         private void loadRecipes()
         {
             string path = Directory.GetCurrentDirectory();
@@ -134,39 +135,7 @@ namespace RecipeBook
             updateSearchResults(matching_recipes);
         }
 
-        private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // when recipe is selected from list
-
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)     //search button pressed
-        {
-            // get checked ingredients and add to array
-            string[] checked_ing = {};
-            int num_checked = 0;
-
-            for (int i = 0; i < treeSearchIngredients.Nodes.Count; i++)
-            {
-                if (treeSearchIngredients.Nodes[i].Checked)
-                {
-                    checked_ing[num_checked] = treeSearchIngredients.Nodes[i].Text;
-                    num_checked++;
-                }
-            }
-            List<Recipe> recipe_list = searchRecipes(checked_ing, num_checked); //currently returns unsorted list of recipes
-            ing_search_results = recipe_list;
-            updateSearchResults(recipe_list);
-        }
-
-        private void textSearchEnterKeyHandler(object sender, KeyEventArgs e)
-        {
-            // user typed text search term into search bar and pressed enter
-            if (e.KeyCode == Keys.Enter)
-                textSearch(textSearchBox.Text);
-        }
-
-        List<Recipe> searchRecipes(string[] ing_list, int ing_total)
+        List<Recipe> ingredientSearch(List<string> ing_list)
         {
             // search for checked ingredients
             var ing_pairs = new List<KeyValuePair<Recipe, double>>();
@@ -174,7 +143,7 @@ namespace RecipeBook
 
             for(int i = 0; i < num_recipes; i++)
             {
-                for (int j = 0; j < ing_total; j++)
+                for (int j = 0; j < ing_list.Count(); j++)
                 {
                     double amount = recipes[i].hasIngredient(ing_list[j]);
                     if (amount > 0)
@@ -182,17 +151,49 @@ namespace RecipeBook
                 }
             }
             // TODO: sort ing_pairs by amount (second parameter), then return array of sorted recipes
-            for (int i = 0; i < ing_total; i++)
+            for (int i = 0; i < ing_pairs.Count(); i++)
             {
                 result.Add(ing_pairs[i].Key);
             }
             return result;
         }
 
+
+        // event handlers
+        private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)    // TODO: when recipe is selected from list
+        {
+            
+
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)     //ingredient search button pressed
+        {
+            // get checked ingredients and add to list
+            CheckedListBox.CheckedItemCollection checked_obj = ingredientChecklist.CheckedItems;
+            List<string> checked_list = new List<string>();
+
+            foreach (object item in checked_obj)
+            {
+                checked_list.Add(item.ToString());
+            }
+            List<Recipe> recipe_list = ingredientSearch(checked_list); //currently returns unsorted list of recipes
+            ing_search_results = recipe_list;
+            updateSearchResults(ing_search_results);
+        }
+
+        private void textSearchEnterKeyHandler(object sender, KeyEventArgs e)   // user typed text search term into search bar and pressed enter
+        {
+             if (e.KeyCode == Keys.Enter)
+                textSearch(textSearchBox.Text);
+        }
+
+        // search clears
         private void clearSearchButton_Click(object sender, EventArgs e)
         {
             // TODO: reset ingredient checks
             textSearchBox.Text = "Search...";
+            for(int i = 0; i < ingredientChecklist.Items.Count; i++)
+                ingredientChecklist.SetItemCheckState(i, CheckState.Unchecked);
             updateSearchResults(recipes);
         }
 

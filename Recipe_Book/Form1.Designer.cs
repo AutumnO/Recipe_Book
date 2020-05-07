@@ -28,24 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Soy Milk");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("DAIRY", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lettuce");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("PRODUCE", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Peanut Butter");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("CONDIMENTS", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Bread");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("OTHER", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Meatloaf");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("PB&J");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Soupy Soup");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Meatloaf");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("PB&J");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Soupy Soup");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Tabs = new System.Windows.Forms.TabControl();
             this.recipeSearchTab = new System.Windows.Forms.TabPage();
@@ -54,7 +42,7 @@
             this.searchButtonContainer = new System.Windows.Forms.SplitContainer();
             this.clearSearchButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
-            this.treeSearchIngredients = new System.Windows.Forms.TreeView();
+            this.ingredientChecklist = new System.Windows.Forms.CheckedListBox();
             this.splitContainerRT2 = new System.Windows.Forms.SplitContainer();
             this.textSearchClearButton = new System.Windows.Forms.Button();
             this.textSearchBox = new System.Windows.Forms.TextBox();
@@ -208,7 +196,7 @@
             // 
             // searchButtonContainer.Panel2
             // 
-            this.searchButtonContainer.Panel2.Controls.Add(this.treeSearchIngredients);
+            this.searchButtonContainer.Panel2.Controls.Add(this.ingredientChecklist);
             this.searchButtonContainer.Size = new System.Drawing.Size(233, 645);
             this.searchButtonContainer.SplitterDistance = 25;
             this.searchButtonContainer.TabIndex = 1;
@@ -235,35 +223,25 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // treeSearchIngredients
+            // ingredientChecklist
             // 
-            this.treeSearchIngredients.CheckBoxes = true;
-            this.treeSearchIngredients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeSearchIngredients.Location = new System.Drawing.Point(0, 0);
-            this.treeSearchIngredients.Name = "treeSearchIngredients";
-            treeNode1.Name = "soymilkLeaf";
-            treeNode1.Text = "Soy Milk";
-            treeNode2.Name = "dairyRoot";
-            treeNode2.Text = "DAIRY";
-            treeNode3.Name = "lettuceLeaf";
-            treeNode3.Text = "Lettuce";
-            treeNode4.Name = "produceRoot";
-            treeNode4.Text = "PRODUCE";
-            treeNode5.Name = "peanutbutterLeaf";
-            treeNode5.Text = "Peanut Butter";
-            treeNode6.Name = "condimentsRoot";
-            treeNode6.Text = "CONDIMENTS";
-            treeNode7.Name = "breadLeaf";
-            treeNode7.Text = "Bread";
-            treeNode8.Name = "otherRoot";
-            treeNode8.Text = "OTHER";
-            this.treeSearchIngredients.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode6,
-            treeNode8});
-            this.treeSearchIngredients.Size = new System.Drawing.Size(233, 616);
-            this.treeSearchIngredients.TabIndex = 0;
+            this.ingredientChecklist.CheckOnClick = true;
+            this.ingredientChecklist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ingredientChecklist.FormattingEnabled = true;
+            this.ingredientChecklist.Items.AddRange(new object[] {
+            "bread",
+            "jam",
+            "lettuce",
+            "milk",
+            "mustard",
+            "peanut butter",
+            "soy milk"});
+            this.ingredientChecklist.Location = new System.Drawing.Point(0, 0);
+            this.ingredientChecklist.MultiColumn = true;
+            this.ingredientChecklist.Name = "ingredientChecklist";
+            this.ingredientChecklist.Size = new System.Drawing.Size(233, 616);
+            this.ingredientChecklist.Sorted = true;
+            this.ingredientChecklist.TabIndex = 1;
             // 
             // splitContainerRT2
             // 
@@ -311,19 +289,19 @@
             this.recipeSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipeSearchResults.GridLines = true;
             this.recipeSearchResults.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem6.StateImageIndex = 0;
+            listViewItem7.StateImageIndex = 0;
+            listViewItem8.StateImageIndex = 0;
+            listViewItem9.StateImageIndex = 0;
+            listViewItem10.StateImageIndex = 0;
+            listViewItem11.StateImageIndex = 0;
+            listViewItem12.StateImageIndex = 0;
             this.recipeSearchResults.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.recipeSearchResults.Location = new System.Drawing.Point(0, 0);
             this.recipeSearchResults.MultiSelect = false;
             this.recipeSearchResults.Name = "recipeSearchResults";
@@ -682,7 +660,6 @@
         private System.Windows.Forms.SplitContainer recipeTabContainer;
         private System.Windows.Forms.TabPage shoppingListTab;
         private System.Windows.Forms.SplitContainer searchRecipeContainer;
-        private System.Windows.Forms.TreeView treeSearchIngredients;
         private System.Windows.Forms.Label mainTitleText;
         private System.Windows.Forms.ListView recipeSearchResults;
         private System.Windows.Forms.PictureBox pbjpgImage;
@@ -717,6 +694,7 @@
         private System.Windows.Forms.TextBox textSearchBox;
         private System.Windows.Forms.Button clearSearchButton;
         private System.Windows.Forms.Button textSearchClearButton;
+        private System.Windows.Forms.CheckedListBox ingredientChecklist;
     }
 }
 
