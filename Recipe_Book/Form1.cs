@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,8 @@ namespace RecipeBook
 {
     public partial class Form1 : Form
     {
-        Recipe[] recipes;
-        int num_recipes;
+        public int num_recipes = 0;
+        public List<Recipe> recipes = new List<Recipe>();
 
         public Form1()
         {
@@ -28,8 +29,9 @@ namespace RecipeBook
 
         private void loadRecipes()
         {
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\ao191\Desktop\bin\Recipe_Book\Recipe_Book\Recipes.txt");    //how do I access specific resource file
-            string line;
+            string path = Directory.GetCurrentDirectory() + @"\Resources\Recipes.txt";
+            System.IO.StreamReader file = new System.IO.StreamReader(path);    //how do I access specific resource file
+            string line;                                // @"C:\Users\ao191\Desktop\bin\Recipe_Book\Recipe_Book\Recipes.txt"
             bool end = false;
             // may want to refactor in the future
             while (!file.EndOfStream)
@@ -43,7 +45,7 @@ namespace RecipeBook
                 // ingredient amounts
                 line = file.ReadLine();
                 string[] str_amounts = line.Split(',');
-                double[] amounts = { };
+                double[] amounts = new double[str_amounts.Length];
                 for (int i = 0; i < str_amounts.Length; i++)
                     amounts[i] = Convert.ToDouble(str_amounts[i]);
                 a_recipe.amounts = amounts;
@@ -93,7 +95,7 @@ namespace RecipeBook
                 end = false;
 
                 // add recipe to root list
-                recipes[num_recipes] = a_recipe;
+                recipes.Add(a_recipe);
                 num_recipes++;
             }
         }

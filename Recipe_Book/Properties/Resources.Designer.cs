@@ -59,47 +59,5 @@ namespace Recipe_Book.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap none {
-            get {
-                object obj = ResourceManager.GetObject("none", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pbnjpg {
-            get {
-                object obj = ResourceManager.GetObject("pbnjpg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Peanut Butter &amp; Jelly
-        ///pb&amp;jpg.jpg
-        ///3.0,3.0,2.0
-        ///tbsp,tbsp,slices
-        ///peanut butter,jelly,bread
-        ///-,-,-
-        ///1. Toast bread.
-        ///2. Spread peanut butter on one side of one piece of bread.
-        ///3. Spread jelly on one side of another piece of bread.
-        ///4. Put slices of bread together so the peanut butter and jelly touch.
-        ///*5. Cut in half or fourths and enjoy!
-        ///Any nut butter can be substituted for the peanut butter.
-        ///Jam or honey can be substituted for the jelly.
-        ///*A tortilla can be used instead of bread, simply spread ingredi [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Recipes {
-            get {
-                return ResourceManager.GetString("Recipes", resourceCulture);
-            }
-        }
     }
 }
