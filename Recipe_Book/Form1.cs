@@ -16,6 +16,8 @@ namespace RecipeBook
     {
         public int num_recipes = 0;
         public List<Recipe> recipes = new List<Recipe>();
+        public List<Recipe> current_search_results = new List<Recipe>();
+        public List<Recipe> ing_search_results = new List<Recipe>();
 
         public Form1()
         {
@@ -29,9 +31,11 @@ namespace RecipeBook
 
         private void loadRecipes()
         {
-            string path = Directory.GetCurrentDirectory() + @"\Resources\Recipes.txt";
+            string path = Directory.GetCurrentDirectory();
+            path = path.Remove(path.Length - 10);
+            path += @"\Resources\recipes.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);    //how do I access specific resource file
-            string line;                                // @"C:\Users\ao191\Desktop\bin\Recipe_Book\Recipe_Book\Recipes.txt"
+            string line;                                
             bool end = false;
             // may want to refactor in the future
             while (!file.EndOfStream)
@@ -98,11 +102,42 @@ namespace RecipeBook
                 recipes.Add(a_recipe);
                 num_recipes++;
             }
+            file.Close();
+            ing_search_results = recipes;
+            updateSearchResults(recipes);
+        }
+
+        private void updateSearchResults(List<Recipe> search_results)
+        {
+            // add recipes to listview, position in current search results added as item tag
+            recipeSearchResults.Items.Clear();
+            current_search_results = search_results;
+            for (int i = 0; i < search_results.Count(); i++)
+            {
+                ListViewItem item = new ListViewItem(search_results[i].name);
+                item.Tag = i;
+                recipeSearchResults.Items.Add(item);
+            } 
+        }
+
+        private void textSearch (string text)
+        {
+            // update search results
+            List<Recipe> matching_recipes = new List<Recipe>();
+            ListViewItem item = recipeSearchResults.FindItemWithText(text);
+            while (item != null)
+            {
+                matching_recipes.Add(current_search_results[Convert.ToInt32(item.Tag)]);
+                recipeSearchResults.Items.Remove(item);
+                item = recipeSearchResults.FindItemWithText(text);
+            }
+            updateSearchResults(matching_recipes);
         }
 
         private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             // when recipe is selected from list
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)     //search button pressed
@@ -119,19 +154,23 @@ namespace RecipeBook
                     num_checked++;
                 }
             }
-            var recipe_list = searchRecipes(checked_ing, num_checked); //currently returns list of recipes with ingredient, TODO: sort the list
-            // display recipe_list recipes in list of returned recipes
-            recipeSearchResults.Items.Clear();
-            for (int i = 0; i < recipe_list.Count; i++)
-            {
-                recipeSearchResults.Items.Add(recipe_list[i].Key.name, i);
-            }
+            List<Recipe> recipe_list = searchRecipes(checked_ing, num_checked); //currently returns unsorted list of recipes
+            ing_search_results = recipe_list;
+            updateSearchResults(recipe_list);
         }
 
-        List<KeyValuePair<Recipe, double>> searchRecipes(string[] ing_list, int ing_total)
+        private void textSearchEnterKeyHandler(object sender, KeyEventArgs e)
+        {
+            // user typed text search term into search bar and pressed enter
+            if (e.KeyCode == Keys.Enter)
+                textSearch(textSearchBox.Text);
+        }
+
+        List<Recipe> searchRecipes(string[] ing_list, int ing_total)
         {
             // search for checked ingredients
             var ing_pairs = new List<KeyValuePair<Recipe, double>>();
+            List<Recipe> result = new List<Recipe>();
 
             for(int i = 0; i < num_recipes; i++)
             {
@@ -142,7 +181,26 @@ namespace RecipeBook
                         ing_pairs.Add(new KeyValuePair<Recipe, double> (recipes[i], amount));
                 }
             }
-            return ing_pairs;
+            // TODO: sort ing_pairs by amount (second parameter), then return array of sorted recipes
+            for (int i = 0; i < ing_total; i++)
+            {
+                result.Add(ing_pairs[i].Key);
+            }
+            return result;
+        }
+
+        private void clearSearchButton_Click(object sender, EventArgs e)
+        {
+            // TODO: reset ingredient checks
+            textSearchBox.Text = "Search...";
+            updateSearchResults(recipes);
+        }
+
+        private void textSearchClearButton_Click(object sender, EventArgs e)
+        {
+            // resets text search, doesn't clear ingredient search
+            textSearchBox.Text = "Search...";
+            updateSearchResults(ing_search_results);
         }
     }
 

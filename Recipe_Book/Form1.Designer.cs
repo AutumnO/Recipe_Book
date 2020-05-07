@@ -37,6 +37,9 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Peanut Butter");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("CONDIMENTS", new System.Windows.Forms.TreeNode[] {
             treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Bread");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("OTHER", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Meatloaf");
@@ -49,8 +52,12 @@
             this.recipeTabContainer = new System.Windows.Forms.SplitContainer();
             this.searchRecipeContainer = new System.Windows.Forms.SplitContainer();
             this.searchButtonContainer = new System.Windows.Forms.SplitContainer();
+            this.clearSearchButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.treeSearchIngredients = new System.Windows.Forms.TreeView();
+            this.splitContainerRT2 = new System.Windows.Forms.SplitContainer();
+            this.textSearchClearButton = new System.Windows.Forms.Button();
+            this.textSearchBox = new System.Windows.Forms.TextBox();
             this.recipeSearchResults = new System.Windows.Forms.ListView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
@@ -95,6 +102,10 @@
             this.searchButtonContainer.Panel1.SuspendLayout();
             this.searchButtonContainer.Panel2.SuspendLayout();
             this.searchButtonContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRT2)).BeginInit();
+            this.splitContainerRT2.Panel1.SuspendLayout();
+            this.splitContainerRT2.Panel2.SuspendLayout();
+            this.splitContainerRT2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbjpgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -178,7 +189,7 @@
             // 
             // searchRecipeContainer.Panel2
             // 
-            this.searchRecipeContainer.Panel2.Controls.Add(this.recipeSearchResults);
+            this.searchRecipeContainer.Panel2.Controls.Add(this.splitContainerRT2);
             this.searchRecipeContainer.Size = new System.Drawing.Size(700, 645);
             this.searchRecipeContainer.SplitterDistance = 233;
             this.searchRecipeContainer.TabIndex = 4;
@@ -192,6 +203,7 @@
             // 
             // searchButtonContainer.Panel1
             // 
+            this.searchButtonContainer.Panel1.Controls.Add(this.clearSearchButton);
             this.searchButtonContainer.Panel1.Controls.Add(this.searchButton);
             // 
             // searchButtonContainer.Panel2
@@ -201,12 +213,23 @@
             this.searchButtonContainer.SplitterDistance = 25;
             this.searchButtonContainer.TabIndex = 1;
             // 
+            // clearSearchButton
+            // 
+            this.clearSearchButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.clearSearchButton.Location = new System.Drawing.Point(116, 0);
+            this.clearSearchButton.Name = "clearSearchButton";
+            this.clearSearchButton.Size = new System.Drawing.Size(117, 25);
+            this.clearSearchButton.TabIndex = 1;
+            this.clearSearchButton.Text = "Clear";
+            this.clearSearchButton.UseVisualStyleBackColor = true;
+            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
+            // 
             // searchButton
             // 
-            this.searchButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.searchButton.Location = new System.Drawing.Point(0, 0);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(233, 23);
+            this.searchButton.Size = new System.Drawing.Size(117, 25);
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -230,12 +253,57 @@
             treeNode5.Text = "Peanut Butter";
             treeNode6.Name = "condimentsRoot";
             treeNode6.Text = "CONDIMENTS";
+            treeNode7.Name = "breadLeaf";
+            treeNode7.Text = "Bread";
+            treeNode8.Name = "otherRoot";
+            treeNode8.Text = "OTHER";
             this.treeSearchIngredients.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode4,
-            treeNode6});
+            treeNode6,
+            treeNode8});
             this.treeSearchIngredients.Size = new System.Drawing.Size(233, 616);
             this.treeSearchIngredients.TabIndex = 0;
+            // 
+            // splitContainerRT2
+            // 
+            this.splitContainerRT2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerRT2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerRT2.Name = "splitContainerRT2";
+            this.splitContainerRT2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerRT2.Panel1
+            // 
+            this.splitContainerRT2.Panel1.Controls.Add(this.textSearchClearButton);
+            this.splitContainerRT2.Panel1.Controls.Add(this.textSearchBox);
+            // 
+            // splitContainerRT2.Panel2
+            // 
+            this.splitContainerRT2.Panel2.Controls.Add(this.recipeSearchResults);
+            this.splitContainerRT2.Size = new System.Drawing.Size(463, 645);
+            this.splitContainerRT2.SplitterDistance = 25;
+            this.splitContainerRT2.TabIndex = 1;
+            // 
+            // textSearchClearButton
+            // 
+            this.textSearchClearButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.textSearchClearButton.Location = new System.Drawing.Point(346, 0);
+            this.textSearchClearButton.Name = "textSearchClearButton";
+            this.textSearchClearButton.Size = new System.Drawing.Size(117, 25);
+            this.textSearchClearButton.TabIndex = 2;
+            this.textSearchClearButton.Text = "Clear";
+            this.textSearchClearButton.UseVisualStyleBackColor = true;
+            this.textSearchClearButton.Click += new System.EventHandler(this.textSearchClearButton_Click);
+            // 
+            // textSearchBox
+            // 
+            this.textSearchBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textSearchBox.Location = new System.Drawing.Point(0, 0);
+            this.textSearchBox.Name = "textSearchBox";
+            this.textSearchBox.Size = new System.Drawing.Size(349, 20);
+            this.textSearchBox.TabIndex = 0;
+            this.textSearchBox.Text = "Search...";
+            this.textSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textSearchEnterKeyHandler);
             // 
             // recipeSearchResults
             // 
@@ -259,12 +327,11 @@
             this.recipeSearchResults.Location = new System.Drawing.Point(0, 0);
             this.recipeSearchResults.MultiSelect = false;
             this.recipeSearchResults.Name = "recipeSearchResults";
-            this.recipeSearchResults.Size = new System.Drawing.Size(463, 645);
-            this.recipeSearchResults.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.recipeSearchResults.Size = new System.Drawing.Size(463, 616);
             this.recipeSearchResults.TabIndex = 0;
             this.recipeSearchResults.TileSize = new System.Drawing.Size(250, 20);
             this.recipeSearchResults.UseCompatibleStateImageBehavior = false;
-            this.recipeSearchResults.View = System.Windows.Forms.View.Tile;
+            this.recipeSearchResults.View = System.Windows.Forms.View.List;
             this.recipeSearchResults.SelectedIndexChanged += new System.EventHandler(this.recipeListView_SelectedIndexChanged);
             // 
             // richTextBox1
@@ -592,6 +659,11 @@
             this.searchButtonContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonContainer)).EndInit();
             this.searchButtonContainer.ResumeLayout(false);
+            this.splitContainerRT2.Panel1.ResumeLayout(false);
+            this.splitContainerRT2.Panel1.PerformLayout();
+            this.splitContainerRT2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRT2)).EndInit();
+            this.splitContainerRT2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbjpgImage)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -641,6 +713,10 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer searchButtonContainer;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.SplitContainer splitContainerRT2;
+        private System.Windows.Forms.TextBox textSearchBox;
+        private System.Windows.Forms.Button clearSearchButton;
+        private System.Windows.Forms.Button textSearchClearButton;
     }
 }
 
