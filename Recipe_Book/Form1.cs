@@ -27,6 +27,7 @@ namespace RecipeBook
         private void Form1_Load(object sender, EventArgs e)
         {
             loadRecipes();
+            initializeSmallRecipeView();
         }
 
 
@@ -77,7 +78,7 @@ namespace RecipeBook
                         line = line.Substring(1);   // do I want to keep the * in the string for re-writing?
                     }
                     else
-                        line += "/n";
+                        line += "\r\n\n";
                     full_process += line;
                 }
                 a_recipe.process = full_process;
@@ -93,7 +94,7 @@ namespace RecipeBook
                         line = line.Substring(1);   // do I want to keep the * in the string for re-writing?
                     }
                     else
-                        line += "/n";
+                        line += "\r\n\n";
                     full_notes += line;
                 }
                 a_recipe.add_notes = line;
@@ -106,6 +107,16 @@ namespace RecipeBook
             file.Close();
             ing_search_results = recipes;
             updateSearchResults(recipes);
+        }
+
+        private void initializeSmallRecipeView()
+        {
+            pictureSlim.Visible = false;
+            fullRecipeButton.Visible = false;
+            cookingModeButton.Visible = false;
+            editRecipeButton.Visible = false;
+            processTextSlim.Visible = false;
+            tableExample.Visible = false;
         }
 
         private void updateSearchResults(List<Recipe> search_results)
@@ -158,12 +169,90 @@ namespace RecipeBook
             return result;
         }
 
+        private void drawRecipeSlim(Recipe recipe)
+        {
+            foreach (TableLayoutPanel table_instance in splitContainerRecipeSlim.Panel2.Controls.OfType<TableLayoutPanel>())
+            {
+                splitContainerRecipeSlim.Panel2.Controls.Remove(table_instance);
+                table_instance.Dispose();
+            }
+
+            string path = Directory.GetCurrentDirectory();
+            path = path.Remove(path.Length - 10);
+            path += @"\Resources\" + recipe.image;
+            pictureSlim.Visible = true;
+            pictureSlim.Image = Image.FromFile(path);        //TODO: convert image name to image file for display
+            fullRecipeButton.Visible = true;
+            cookingModeButton.Visible = true;
+            editRecipeButton.Visible = true;
+
+            TableLayoutPanel table = new TableLayoutPanel();
+            table.Parent = splitContainerRecipeSlim.Panel2;
+            table.Dock = DockStyle.Top;
+            table.ColumnCount = 4;
+            table.RowCount = recipe.ingredient_list.Length;
+
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34F));
+
+            table.AutoSize = true;
+            table.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            
+            // ingredients
+            //List<TextBox> amounts = new List<TextBox>();
+            
+            for (int i = 0; i < recipe.ingredient_list.Length; i++)
+            {
+                Label item_amount = new Label();
+                item_amount.Text = recipe.amounts[i].ToString();
+                item_amount.BorderStyle = BorderStyle.None;
+                item_amount.TextAlign = ContentAlignment.BottomRight;
+                table.Controls.Add(item_amount, 0, i);
+            }
+
+            for (int i = 0; i < recipe.ingredient_list.Length; i++)
+            {
+                ComboBox item_unit = new ComboBox();
+                item_unit.Text = recipe.units[i];
+                item_unit.FlatStyle = FlatStyle.Flat;
+                table.Controls.Add(item_unit, 1, i);
+            }
+
+            for (int i = 0; i < recipe.ingredient_list.Length; i++)
+            {
+                TextBox item_ing = new TextBox();
+                item_ing.Text = recipe.ingredient_list[i];
+                item_ing.BorderStyle = BorderStyle.None;
+                table.Controls.Add(item_ing, 2, i);
+            }
+
+            for (int i = 0; i < recipe.ingredient_list.Length; i++)
+            {
+                TextBox item_notes = new TextBox();
+                item_notes.Text = recipe.ing_notes[i];
+                item_notes.BorderStyle = BorderStyle.None;
+                table.Controls.Add(item_notes, 3, i);
+            }
+
+            // process
+            processTextSlim.Visible = true;
+            processTextSlim.Text = recipe.process;
+            // notes?
+        }
 
         // event handlers
         private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)    // TODO: when recipe is selected from list
         {
-            
-
+            var s = recipeSearchResults.SelectedItems;
+            if (s.Count > 0)
+            {
+                var i = s[0].Tag;
+                int selection_index = Convert.ToInt32(i.ToString());
+                Recipe selection = current_search_results[selection_index];
+                drawRecipeSlim(selection);
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)     //ingredient search button pressed
@@ -203,6 +292,7 @@ namespace RecipeBook
             textSearchBox.Text = "Search...";
             updateSearchResults(ing_search_results);
         }
+
     }
 
     public class Recipe
@@ -215,17 +305,6 @@ namespace RecipeBook
         public string[] ing_notes;
         public string process;
         public string add_notes;
-
-
-        public void drawRecipeSmall()
-        {
-            // image
-            // buttons (visible enabled / invisible unenabled)
-            // name
-            // ingredients
-            // process
-            // notes
-        }
 
         public double hasIngredient(string ingredient)
         {

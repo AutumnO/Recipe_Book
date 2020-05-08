@@ -1,5 +1,5 @@
 Peanut Butter & Jelly
-pb&jpg.jpg
+pbnjpg.jpg
 3.0,3.0,2.0
 tbsp,tbsp,slices
 peanut butter,jelly,bread
