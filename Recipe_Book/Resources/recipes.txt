@@ -23,7 +23,7 @@ tomato soup,vegetable soup,water,thyme
 *3. Serve and enjoy!
 *None
 Toaster Waffles
-none.png
+toaster_waffles.jpg
 2.0,3.0,0.5
 -,tbsp,tbsp
 waffles,maple syrup,butter

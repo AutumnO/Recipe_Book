@@ -181,7 +181,7 @@ namespace RecipeBook
             path = path.Remove(path.Length - 10);
             path += @"\Resources\" + recipe.image;
             pictureSlim.Visible = true;
-            pictureSlim.Image = Image.FromFile(path);        //TODO: convert image name to image file for display
+            pictureSlim.Image = Image.FromFile(path);
             fullRecipeButton.Visible = true;
             cookingModeButton.Visible = true;
             editRecipeButton.Visible = true;
@@ -201,7 +201,6 @@ namespace RecipeBook
             table.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             
             // ingredients
-            //List<TextBox> amounts = new List<TextBox>();
             
             for (int i = 0; i < recipe.ingredient_list.Length; i++)
             {
@@ -243,7 +242,7 @@ namespace RecipeBook
         }
 
         // event handlers
-        private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)    // TODO: when recipe is selected from list
+        private void recipeListView_SelectedIndexChanged(object sender, EventArgs e)    // when recipe is selected from list
         {
             var s = recipeSearchResults.SelectedItems;
             if (s.Count > 0)

@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Meatloaf");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("PB&J");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Soupy Soup");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Meatloaf");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("PB&J");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Soupy Soup");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Tabs = new System.Windows.Forms.TabControl();
             this.recipeSearchTab = new System.Windows.Forms.TabPage();
             this.recipeTabContainer = new System.Windows.Forms.SplitContainer();
             this.searchRecipeContainer = new System.Windows.Forms.SplitContainer();
             this.searchButtonContainer = new System.Windows.Forms.SplitContainer();
-            this.clearSearchButton = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.searchButton = new System.Windows.Forms.Button();
+            this.clearSearchButton = new System.Windows.Forms.Button();
             this.ingredientChecklist = new System.Windows.Forms.CheckedListBox();
             this.splitContainerRT2 = new System.Windows.Forms.SplitContainer();
             this.textSearchClearButton = new System.Windows.Forms.Button();
@@ -63,12 +64,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.shoppingListTab = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.kitchenStockTab = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.mainTitleText = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label3 = new System.Windows.Forms.Label();
             this.Tabs.SuspendLayout();
             this.recipeSearchTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recipeTabContainer)).BeginInit();
@@ -83,6 +83,10 @@
             this.searchButtonContainer.Panel1.SuspendLayout();
             this.searchButtonContainer.Panel2.SuspendLayout();
             this.searchButtonContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRT2)).BeginInit();
             this.splitContainerRT2.Panel1.SuspendLayout();
             this.splitContainerRT2.Panel2.SuspendLayout();
@@ -99,10 +103,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tabs
@@ -189,18 +189,22 @@
             this.searchButtonContainer.SplitterWidth = 5;
             this.searchButtonContainer.TabIndex = 1;
             // 
-            // clearSearchButton
+            // splitContainer2
             // 
-            this.clearSearchButton.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.clearSearchButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearSearchButton.Location = new System.Drawing.Point(0, 0);
-            this.clearSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.clearSearchButton.Name = "clearSearchButton";
-            this.clearSearchButton.Size = new System.Drawing.Size(99, 27);
-            this.clearSearchButton.TabIndex = 1;
-            this.clearSearchButton.Text = "Clear";
-            this.clearSearchButton.UseVisualStyleBackColor = false;
-            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.searchButton);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.clearSearchButton);
+            this.splitContainer2.Size = new System.Drawing.Size(205, 27);
+            this.splitContainer2.SplitterDistance = 102;
+            this.splitContainer2.TabIndex = 0;
             // 
             // searchButton
             // 
@@ -215,6 +219,19 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // clearSearchButton
+            // 
+            this.clearSearchButton.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.clearSearchButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clearSearchButton.Location = new System.Drawing.Point(0, 0);
+            this.clearSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.clearSearchButton.Name = "clearSearchButton";
+            this.clearSearchButton.Size = new System.Drawing.Size(99, 27);
+            this.clearSearchButton.TabIndex = 1;
+            this.clearSearchButton.Text = "Clear";
+            this.clearSearchButton.UseVisualStyleBackColor = false;
+            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
+            // 
             // ingredientChecklist
             // 
             this.ingredientChecklist.CheckOnClick = true;
@@ -227,7 +244,8 @@
             "milk",
             "mustard",
             "peanut butter",
-            "soy milk"});
+            "soy milk",
+            "vegetable soup"});
             this.ingredientChecklist.Location = new System.Drawing.Point(0, 0);
             this.ingredientChecklist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ingredientChecklist.MultiColumn = true;
@@ -287,19 +305,19 @@
             this.recipeSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipeSearchResults.GridLines = true;
             this.recipeSearchResults.HideSelection = false;
-            listViewItem13.StateImageIndex = 0;
-            listViewItem14.StateImageIndex = 0;
-            listViewItem15.StateImageIndex = 0;
-            listViewItem16.StateImageIndex = 0;
-            listViewItem17.StateImageIndex = 0;
-            listViewItem18.StateImageIndex = 0;
+            listViewItem7.StateImageIndex = 0;
+            listViewItem8.StateImageIndex = 0;
+            listViewItem9.StateImageIndex = 0;
+            listViewItem10.StateImageIndex = 0;
+            listViewItem11.StateImageIndex = 0;
+            listViewItem12.StateImageIndex = 0;
             this.recipeSearchResults.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18});
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.recipeSearchResults.Location = new System.Drawing.Point(0, 0);
             this.recipeSearchResults.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.recipeSearchResults.Name = "recipeSearchResults";
@@ -511,15 +529,25 @@
             this.shoppingListTab.TabIndex = 2;
             this.shoppingListTab.Text = "Shopping List";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Engravers MT", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(400, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(375, 41);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "COMING SOON!";
+            // 
             // kitchenStockTab
             // 
             this.kitchenStockTab.BackColor = System.Drawing.Color.LightSlateGray;
             this.kitchenStockTab.Controls.Add(this.label4);
-            this.kitchenStockTab.Location = new System.Drawing.Point(4, 26);
+            this.kitchenStockTab.Location = new System.Drawing.Point(4, 22);
             this.kitchenStockTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kitchenStockTab.Name = "kitchenStockTab";
             this.kitchenStockTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.kitchenStockTab.Size = new System.Drawing.Size(1176, 736);
+            this.kitchenStockTab.Size = new System.Drawing.Size(1176, 740);
             this.kitchenStockTab.TabIndex = 1;
             this.kitchenStockTab.Text = "Kitchen Stock";
             // 
@@ -564,33 +592,6 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
             // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.searchButton);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.clearSearchButton);
-            this.splitContainer2.Size = new System.Drawing.Size(205, 27);
-            this.splitContainer2.SplitterDistance = 102;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Engravers MT", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(400, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(375, 41);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "COMING SOON!";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -617,6 +618,10 @@
             this.searchButtonContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchButtonContainer)).EndInit();
             this.searchButtonContainer.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.splitContainerRT2.Panel1.ResumeLayout(false);
             this.splitContainerRT2.Panel1.PerformLayout();
             this.splitContainerRT2.Panel2.ResumeLayout(false);
@@ -639,10 +644,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
