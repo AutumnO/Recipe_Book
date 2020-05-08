@@ -193,9 +193,9 @@ namespace RecipeBook
             table.RowCount = recipe.ingredient_list.Length;
 
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12F));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34F));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37F));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37F));
 
             table.AutoSize = true;
             table.AutoSizeMode = AutoSizeMode.GrowAndShrink;

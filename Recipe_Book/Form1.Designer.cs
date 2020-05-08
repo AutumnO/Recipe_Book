@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Meatloaf");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("PB&J");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Soupy Soup");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Alfredo Sauce");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Deviled Eggs");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Meatloaf");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("PB&J");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Soupy Soup");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Watermelon Popcicles");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Tabs = new System.Windows.Forms.TabControl();
             this.recipeSearchTab = new System.Windows.Forms.TabPage();
@@ -305,19 +305,19 @@
             this.recipeSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipeSearchResults.GridLines = true;
             this.recipeSearchResults.HideSelection = false;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
-            listViewItem9.StateImageIndex = 0;
-            listViewItem10.StateImageIndex = 0;
-            listViewItem11.StateImageIndex = 0;
-            listViewItem12.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
+            listViewItem5.StateImageIndex = 0;
+            listViewItem6.StateImageIndex = 0;
             this.recipeSearchResults.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.recipeSearchResults.Location = new System.Drawing.Point(0, 0);
             this.recipeSearchResults.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.recipeSearchResults.Name = "recipeSearchResults";
@@ -522,10 +522,10 @@
             // 
             this.shoppingListTab.BackColor = System.Drawing.Color.LightSlateGray;
             this.shoppingListTab.Controls.Add(this.label3);
-            this.shoppingListTab.Location = new System.Drawing.Point(4, 26);
+            this.shoppingListTab.Location = new System.Drawing.Point(4, 22);
             this.shoppingListTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.shoppingListTab.Name = "shoppingListTab";
-            this.shoppingListTab.Size = new System.Drawing.Size(1176, 736);
+            this.shoppingListTab.Size = new System.Drawing.Size(1176, 740);
             this.shoppingListTab.TabIndex = 2;
             this.shoppingListTab.Text = "Shopping List";
             // 
