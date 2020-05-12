@@ -1,4 +1,7 @@
 # Recipe_Book
+# CS 211 Final Project
+    Everything is currently functional, the design diary details some of the changes that were made since the presentation, I moved some buttons around and created a full recipe view.
+    
 ## Searching
     Create a recipe application that functions as a cook book and reference book. It will allow searching 
     to find recipes that fit specified criteria. Searching can be done through ingredients, proportions, 
@@ -30,14 +33,3 @@
     The current kitchen stock tab will log owned staples to improve meal plans and streamline forming a 
     shopping list. Anything will be able to be logged, but the focus will be on staples that are not used up 
     frequently.
-    
-    
-# Goals within CS 211 Final Project scope
-    I will be using WinForms to do this within the scope of the final project. Current goals for the project
-    are subject to change, they are currently as follows:
-    
-    1. Create a class of recipes and sort them through a search of their properties.
-    2. Have a button that allows creation of new recipes.
-    3. Figure out a format for storing the recipes while the application is not running.
-    4. Recipe ingredients should have two ingredient parameters, the name of the ingredient, and the amount
-            in the standard recipe.

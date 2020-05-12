@@ -35,3 +35,19 @@ Coming back to the code, I set out to implement the slim recipe view when a reci
 	(x) Clicking recipe should prompt small view of full recipe
 	(x) Hide recipe page until an item in the recipe list is activated
 	(x) Images on recipes should stretch to fit image box
+
+May 11th, 2020
+Today I worked on creating a full recipe view page and fixing some layout issues in the slim view. The full view mainly consisted of lots of dynamically created containers filled with elements. It took me a while to figure out how I wanted the layout to be, which I imagine will change in the future but I am happy with it now. I made a few new functions to help with creating the recipe tables and setting the recipe parameters. All in all this was mostly busy work, although learning to create my own event handlers was pretty interesting. I thought about adding more recipes to make it look more complete, but at this stage I didn’t want to lose my test cases and spend a lot of time typing out recipes in the text file before I implement adding recipes in the program.
+	(x) Full view for recipes
+
+Current Goals
+	(  ) Sorting algorithm for recipe ingredients list
+	(  ) Plan out editing recipes, including writing changes back to file
+	(  ) Add new recipe functionality
+
+Future Goals
+	(  ) Function upon save button that rewrites recipes to text file
+	(  ) Sort ingredient search by amount in recipe
+	(  ) Put ingredient list into groupings
+	(  ) Change search capabilities to not depend on user pressing enter (see link)
+	(  ) Search for key words rather than from index 0 (can’t look up jelly)
